@@ -41,24 +41,19 @@ const Footer = () => {
           <div className="social">
 
             <a 
-              href="#" 
+              href="https://www.instagram.com/_frutitasbyfrancesca?igsh=MW5wM3ZrNjBjd3YwMA==" 
               className="social-icon instagram"
             >
               <FaInstagram />
             </a>
 
 
-            <a 
-              href="#" 
-              className="social-icon whatsapp"
-            >
-              <FaWhatsapp />
-            </a>
+            
 
           </div>
 
           <p>📍 Lomas De Tafi  Sector 6 Manzana 1 Casa 28</p>
-          <p>📞 +54 381 0000000</p>
+          <p>📞 3815836878</p>
 
         </div>
 
