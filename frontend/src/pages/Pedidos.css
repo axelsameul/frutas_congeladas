@@ -1,0 +1,875 @@
+.pedidos-container {
+  width: 92%;
+  max-width: 1250px;
+  margin: 40px auto;
+  padding-bottom: 60px;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.pedidos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.pedidos-header h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #222;
+}
+
+.pedidos-header p {
+  margin: 7px 0 0;
+  color: #777;
+  font-size: 15px;
+}
+
+.pedidos-actualizar {
+  border: none;
+  padding: 11px 17px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  background: #222;
+  color: white;
+  transition: 0.2s;
+}
+
+.pedidos-actualizar:hover {
+  background: #444;
+}
+
+/* ==========================================
+   FILTROS
+========================================== */
+
+.pedidos-filtros {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 15px;
+
+  padding: 18px;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+
+  margin-bottom: 18px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.filtro-item {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.filtro-item label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #666;
+}
+
+.filtro-item input,
+.filtro-item select {
+  height: 42px;
+  min-width: 190px;
+
+  padding: 0 12px;
+
+  border: 1px solid #ddd;
+  border-radius: 9px;
+
+  background: white;
+
+  font-size: 14px;
+  color: #333;
+
+  outline: none;
+}
+
+.filtro-item input:focus,
+.filtro-item select:focus {
+  border-color: #999;
+}
+
+.limpiar-filtros {
+  height: 42px;
+
+  border: none;
+  border-radius: 9px;
+
+  padding: 0 15px;
+
+  background: #f1f1f1;
+  color: #444;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.limpiar-filtros:hover {
+  background: #e5e5e5;
+}
+
+/* ==========================================
+   RESUMEN
+========================================== */
+
+.pedidos-resumen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 15px;
+  padding: 0 4px;
+
+  color: #777;
+  font-size: 14px;
+}
+
+.pedidos-resumen strong {
+  color: #222;
+  font-size: 17px;
+}
+
+.filtros-activos {
+  background: #f1f1f1;
+  color: #555;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ==========================================
+   LISTA
+========================================== */
+
+.pedidos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ==========================================
+   CARD PEDIDO
+========================================== */
+
+.pedido-card {
+  background: white;
+
+  border: 1px solid #eee;
+  border-radius: 15px;
+
+  padding: 20px;
+
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+
+  transition: 0.2s;
+}
+
+.pedido-card:hover {
+  box-shadow: 0 7px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================
+   PARTE SUPERIOR
+========================================== */
+
+.pedido-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid #eee;
+}
+
+.pedido-identificacion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pedido-icono {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f5f5f5;
+
+  border-radius: 11px;
+
+  font-size: 21px;
+}
+
+.pedido-numero {
+  display: block;
+
+  font-size: 18px;
+  font-weight: 750;
+
+  color: #222;
+}
+
+.pedido-fecha {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #888;
+  font-size: 13px;
+}
+
+/* ==========================================
+   ESTADO
+========================================== */
+
+.pedido-estado {
+  border: 1px solid transparent;
+
+  border-radius: 20px;
+
+  padding: 8px 12px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+/* Pendiente */
+
+.estado-pendiente {
+  background: #fff4cf;
+  color: #946c00;
+  border-color: #f1d77b;
+}
+
+/* Comprobante */
+
+.estado-comprobante-enviado {
+  background: #fff0dc;
+  color: #a35c00;
+  border-color: #f0c27b;
+}
+
+/* Confirmado */
+
+.estado-confirmado {
+  background: #e4f0ff;
+  color: #2865a8;
+  border-color: #a8ccef;
+}
+
+/* Preparando */
+
+.estado-preparando {
+  background: #eee5ff;
+  color: #6842a3;
+  border-color: #cdb8ef;
+}
+
+/* Enviado */
+
+.estado-enviado {
+  background: #e3f1ff;
+  color: #2670a8;
+  border-color: #a9d0ed;
+}
+
+/* Entregado */
+
+.estado-entregado {
+  background: #e1f6e9;
+  color: #287a45;
+  border-color: #a8ddba;
+}
+
+/* Cancelado */
+
+.estado-cancelado {
+  background: #ffe5e5;
+  color: #b12626;
+  border-color: #f0adad;
+}
+
+/* ==========================================
+   INFORMACIÓN
+========================================== */
+
+.pedido-informacion {
+  display: grid;
+
+  grid-template-columns:
+    1.2fr
+    1fr
+    1.6fr
+    1fr;
+
+  gap: 15px;
+
+  padding: 18px 0;
+}
+
+.pedido-info-item {
+  min-width: 0;
+}
+
+.info-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #888;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pedido-info-item strong {
+  display: block;
+
+  color: #333;
+
+  font-size: 14px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pedido-direccion strong {
+  white-space: normal;
+}
+
+/* ==========================================
+   EMAIL
+========================================== */
+
+.pedido-email {
+  border-top: 1px solid #f1f1f1;
+
+  padding-top: 12px;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+/* ==========================================
+   PARTE INFERIOR
+========================================== */
+
+.pedido-bottom {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  border-top: 1px solid #eee;
+
+  margin-top: 15px;
+  padding-top: 15px;
+}
+
+.pedido-productos-boton {
+  border: none;
+
+  background: transparent;
+
+  color: #333;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  padding: 7px 0;
+}
+
+.pedido-productos-boton:hover {
+  color: #666;
+}
+
+.pedido-total {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pedido-total span {
+  color: #888;
+  font-size: 13px;
+}
+
+.pedido-total strong {
+  color: #222;
+  font-size: 21px;
+}
+
+/* ==========================================
+   DETALLE PRODUCTOS
+========================================== */
+
+.pedido-detalle {
+  margin-top: 15px;
+
+  background: #fafafa;
+
+  border: 1px solid #eee;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+.detalle-titulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 13px 15px;
+
+  background: #f5f5f5;
+
+  border-bottom: 1px solid #eee;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.detalle-cargando,
+.detalle-vacio {
+  padding: 20px;
+
+  text-align: center;
+
+  color: #777;
+  font-size: 14px;
+}
+
+.productos-lista {
+  padding: 0 15px;
+}
+
+.pedido-producto {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.pedido-producto:last-child {
+  border-bottom: none;
+}
+
+.producto-nombre strong {
+  display: block;
+
+  color: #333;
+
+  font-size: 14px;
+
+  margin-bottom: 4px;
+}
+
+.producto-nombre span {
+  color: #888;
+  font-size: 12px;
+}
+
+.producto-precio {
+  text-align: right;
+}
+
+.producto-precio span {
+  display: block;
+
+  color: #888;
+
+  font-size: 12px;
+
+  margin-bottom: 3px;
+}
+
+.producto-precio strong {
+  font-size: 15px;
+  color: #222;
+}
+
+/* ==========================================
+   OBSERVACIONES
+========================================== */
+
+.pedido-observaciones {
+  margin-top: 15px;
+
+  padding: 13px 15px;
+
+  border-radius: 10px;
+
+  background: #fff8e5;
+
+  border: 1px solid #f5e4b5;
+}
+
+.pedido-observaciones strong {
+  display: block;
+
+  color: #7c6200;
+
+  font-size: 13px;
+
+  margin-bottom: 5px;
+}
+
+.pedido-observaciones p {
+  margin: 0;
+
+  color: #665800;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+/* ==========================================
+   VACÍO
+========================================== */
+
+.pedidos-vacio {
+  background: white;
+
+  border: 1px solid #eee;
+
+  border-radius: 15px;
+
+  text-align: center;
+
+  padding: 60px 20px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.vacio-icono {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.pedidos-vacio h2 {
+  margin: 0 0 8px;
+
+  font-size: 21px;
+  color: #333;
+}
+
+.pedidos-vacio p {
+  margin: 0;
+
+  color: #888;
+}
+
+.boton-quitar-filtro {
+  margin-top: 18px;
+
+  border: none;
+
+  background: #222;
+  color: white;
+
+  padding: 11px 18px;
+
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.boton-quitar-filtro:hover {
+  background: #444;
+}
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.pedidos-error {
+  background: #ffe5e5;
+
+  color: #b00020;
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  margin-bottom: 20px;
+
+  border: 1px solid #f2bcbc;
+}
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.pedidos-loading {
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #777;
+}
+
+.spinner {
+  width: 35px;
+  height: 35px;
+
+  border: 4px solid #eee;
+  border-top-color: #333;
+
+  border-radius: 50%;
+
+  animation: girar 0.8s linear infinite;
+
+  margin-bottom: 12px;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================
+   PAGINACIÓN
+========================================== */
+
+.pedidos-paginacion {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 30px;
+}
+
+.paginacion-flecha {
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid #ddd;
+
+  background: white;
+
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  font-size: 18px;
+}
+
+.paginacion-flecha:hover:not(:disabled) {
+  background: #f3f3f3;
+}
+
+.paginacion-flecha:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.paginas {
+  display: flex;
+  gap: 5px;
+}
+
+.paginas button {
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid #ddd;
+
+  background: white;
+
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  color: #444;
+}
+
+.paginas button:hover {
+  background: #f3f3f3;
+}
+
+.paginas .pagina-activa {
+  background: #222;
+
+  border-color: #222;
+
+  color: white;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+  .pedido-informacion {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pedido-direccion {
+    grid-column: span 2;
+  }
+
+  .pedidos-filtros {
+    flex-wrap: wrap;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .pedidos-container {
+    width: 94%;
+    margin-top: 25px;
+  }
+
+  /* HEADER */
+
+  .pedidos-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .pedidos-header h1 {
+    font-size: 28px;
+  }
+
+  .pedidos-actualizar {
+    width: 100%;
+  }
+
+  /* FILTROS */
+
+  .pedidos-filtros {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .filtro-item {
+    width: 100%;
+  }
+
+  .filtro-item input,
+  .filtro-item select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .limpiar-filtros {
+    width: 100%;
+  }
+
+  /* PEDIDO */
+
+  .pedido-top {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .pedido-estado {
+    width: 100%;
+  }
+
+  .pedido-informacion {
+    grid-template-columns: 1fr;
+  }
+
+  .pedido-direccion {
+    grid-column: auto;
+  }
+
+  .pedido-info-item strong {
+    white-space: normal;
+  }
+
+  /* BOTTOM */
+
+  .pedido-bottom {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .pedido-total {
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 2px;
+  }
+
+  /* PRODUCTOS */
+
+  .pedido-producto {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+
+  .producto-precio {
+    text-align: left;
+  }
+
+  /* PAGINACIÓN */
+
+  .pedidos-paginacion {
+    margin-top: 25px;
+  }
+
+  .paginacion-flecha,
+  .paginas button {
+    width: 36px;
+    height: 36px;
+  }
+
+}

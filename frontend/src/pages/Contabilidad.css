@@ -1,0 +1,334 @@
+.contabilidad-container {
+  width: 92%;
+  max-width: 1250px;
+  margin: 40px auto;
+  padding-bottom: 60px;
+}
+
+.contabilidad-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.contabilidad-header h1 {
+  margin: 0;
+  font-size: 34px;
+}
+
+.contabilidad-header p {
+  margin-top: 8px;
+  color: #777;
+}
+
+.contabilidad-btn {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  background: #222;
+  color: white;
+}
+
+.contabilidad-btn:hover {
+  opacity: 0.85;
+}
+
+
+/* =====================================
+   TARJETAS
+===================================== */
+
+.contabilidad-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.contabilidad-card {
+  background: white;
+  border-radius: 18px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.card-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 27px;
+  background: #f5f5f5;
+}
+
+.contabilidad-card span {
+  display: block;
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.contabilidad-card strong {
+  display: block;
+  font-size: 25px;
+}
+
+
+/* =====================================
+   SECCIONES
+===================================== */
+
+.contabilidad-seccion {
+  background: white;
+  border-radius: 18px;
+  padding: 25px;
+  margin-top: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.contabilidad-seccion h2 {
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.seccion-titulo p {
+  color: #777;
+  margin-top: 5px;
+}
+
+
+/* =====================================
+   ESTADOS
+===================================== */
+
+.estados-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.estado-card {
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #f7f7f7;
+}
+
+.estado-card > span {
+  font-size: 25px;
+}
+
+.estado-card small {
+  display: block;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.estado-card strong {
+  font-size: 25px;
+}
+
+
+/* =====================================
+   GRÁFICO
+===================================== */
+
+.ventas-chart {
+  height: 330px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+  padding: 20px 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.barra-contenedor {
+  height: 100%;
+  flex: 1;
+  max-width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.barra-monto {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.barra-area {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.barra {
+  width: 55%;
+  min-height: 8px;
+  border-radius: 8px 8px 0 0;
+  background: #333;
+  transition: height 0.4s ease;
+}
+
+.barra-dia {
+  margin-top: 10px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+
+/* =====================================
+   TABLA
+===================================== */
+
+.tabla-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.tabla-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-container th {
+  text-align: left;
+  padding: 14px;
+  background: #f7f7f7;
+  font-size: 14px;
+}
+
+.tabla-container td {
+  padding: 15px 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.total-tabla {
+  font-weight: 700;
+}
+
+.estado-tabla {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.estado-pendiente {
+  background: #fff1c7;
+}
+
+.estado-comprobante-enviado {
+  background: #e7e7ff;
+}
+
+.estado-confirmado {
+  background: #dff7e5;
+}
+
+.estado-preparando {
+  background: #e5f0ff;
+}
+
+.estado-enviado {
+  background: #e5f0ff;
+}
+
+.estado-entregado {
+  background: #d8f5df;
+}
+
+.estado-cancelado {
+  background: #ffe0e0;
+}
+
+.sin-ventas {
+  text-align: center;
+  padding: 40px;
+  color: #777;
+}
+
+.contabilidad-cargando {
+  background: white;
+  padding: 50px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.contabilidad-error {
+  background: #ffe5e5;
+  color: #b00020;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 1000px) {
+
+  .contabilidad-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .estados-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .contabilidad-container {
+    width: 94%;
+  }
+
+  .contabilidad-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .contabilidad-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .estados-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ventas-chart {
+    gap: 5px;
+  }
+
+  .barra {
+    width: 70%;
+  }
+
+  .barra-monto {
+    font-size: 9px;
+  }
+
+}
