@@ -57,7 +57,7 @@ const Footer = () => {
 
           </div>
 
-          <p>📍 Lomas De Tafi <br /> Sector 6 Manzana 1 Casa 28</p>
+          <p>📍 Lomas De Tafi  Sector 6 Manzana 1 Casa 28</p>
           <p>📞 +54 381 0000000</p>
 
         </div>
