@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./admin.css";
 
-const API_URL = "http://localhost:3000";
+const API_URL = "https://backend-frutas.onrender.com";
 
 const Admin = () => {
 

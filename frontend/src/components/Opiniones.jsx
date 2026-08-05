@@ -14,7 +14,7 @@ const Opiniones = () => {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
 
 
-  const URL = "http://localhost:3000/api/opiniones";
+  const URL = "https://backend-frutas.onrender.com/api/opiniones";
 
 
   // =========================

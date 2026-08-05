@@ -192,7 +192,7 @@ function Productos() {
 
                 ?
 
-                `http://localhost:3000${producto.imagen}`
+                `https://backend-frutas.onrender.com${producto.imagen}`
 
                 :
 

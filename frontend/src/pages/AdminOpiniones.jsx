@@ -3,7 +3,7 @@ import axios from "axios";
 
 import "./AdminOpiniones.css";
 
-const API_URL = "http://localhost:3000";
+const API_URL = "https://backend-frutas.onrender.com";
 
 
 const AdminOpiniones = () => {
