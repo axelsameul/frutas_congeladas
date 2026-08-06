@@ -828,10 +828,113 @@ const obtenerContabilidad = async (req, res) => {
 
 };
 
+// =====================================================
+// ELIMINAR PEDIDO (solo cancelados)
+// =====================================================
+
+const eliminarPedido = async (req, res) => {
+
+  const { id } = req.params;
+
+  const connection = await pool.getConnection();
+
+  try {
+
+    await connection.beginTransaction();
+
+
+    // Verificar pedido
+    const [pedido] = await connection.query(
+      `
+      SELECT estado
+      FROM pedidos
+      WHERE id_pedido = ?
+      `,
+      [id]
+    );
+
+
+    if (pedido.length === 0) {
+
+      return res.status(404).json({
+        error: "Pedido no encontrado"
+      });
+
+    }
+
+
+    // Solo permitir eliminar cancelados
+    if (pedido[0].estado !== "Cancelado") {
+
+      return res.status(400).json({
+        error: "Solo se pueden eliminar pedidos cancelados"
+      });
+
+    }
+
+
+    // Eliminar detalles del pedido
+    await connection.query(
+      `
+      DELETE FROM detalle_pedido
+      WHERE id_pedido = ?
+      `,
+      [id]
+    );
+
+
+    // Eliminar pedido
+    await connection.query(
+      `
+      DELETE FROM pedidos
+      WHERE id_pedido = ?
+      `,
+      [id]
+    );
+
+
+    await connection.commit();
+
+
+    res.json({
+
+      message: "Pedido eliminado correctamente"
+
+    });
+
+
+  } catch(error) {
+
+
+    await connection.rollback();
+
+
+    console.error(
+      "ERROR ELIMINAR PEDIDO:",
+      error
+    );
+
+
+    res.status(500).json({
+
+      error: "Error al eliminar pedido"
+
+    });
+
+
+  } finally {
+
+    connection.release();
+
+  }
+
+};
+
 module.exports = {
   crearPedido,
   obtenerPedidos,
   obtenerDetallePedido,
   cambiarEstadoPedido,
-  obtenerContabilidad
+  obtenerContabilidad,
+  eliminarPedido
 };

@@ -81,6 +81,47 @@ const Pedidos = () => {
       );
     }
   };
+  const eliminarPedido = async (idPedido) => {
+
+  const confirmar = window.confirm(
+    "¿Seguro que querés eliminar este pedido cancelado?"
+  );
+
+  if (!confirmar) return;
+
+
+  try {
+
+    await api.delete(`/pedidos/${idPedido}`);
+
+
+    setPedidos((pedidosActuales) =>
+      pedidosActuales.filter(
+        (pedido) =>
+          pedido.id_pedido !== idPedido
+      )
+    );
+
+
+    alert("Pedido eliminado correctamente");
+
+
+  } catch (error) {
+
+    console.error(
+      "Error al eliminar pedido:",
+      error
+    );
+
+
+    alert(
+      error.response?.data?.error ||
+      "No se pudo eliminar el pedido"
+    );
+
+  }
+
+};
 
   /* ==========================================
      FILTRAR PEDIDOS
@@ -378,10 +419,11 @@ const Pedidos = () => {
         {pedidosPaginados.map((pedido) => (
 
           <PedidoCard
-            key={pedido.id_pedido}
-            pedido={pedido}
-            cambiarEstado={cambiarEstado}
-          />
+  key={pedido.id_pedido}
+  pedido={pedido}
+  cambiarEstado={cambiarEstado}
+  eliminarPedido={eliminarPedido}
+/>
 
         ))}
 
@@ -458,6 +500,7 @@ const Pedidos = () => {
 const PedidoCard = ({
   pedido,
   cambiarEstado,
+  eliminarPedido
 }) => {
 
   const [productos, setProductos] = useState([]);
@@ -652,7 +695,18 @@ const PedidoCard = ({
       ====================================== */}
 
       <div className="pedido-bottom">
+       {pedido.estado === "Cancelado" && (
 
+        <button
+          className="pedido-eliminar"
+          onClick={() =>
+          eliminarPedido(pedido.id_pedido)
+            }
+        >
+    🗑️ Eliminar pedido
+  </button>
+
+)}
         <button
           className="pedido-productos-boton"
           onClick={toggleProductos}

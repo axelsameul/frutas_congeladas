@@ -349,111 +349,95 @@ id
 // =====================================================
 // ELIMINAR PRODUCTO
 // =====================================================
+const eliminarProducto = async (req, res) => {
 
-const eliminarProducto = async(req,res)=>{
+  const { id } = req.params;
 
+  try {
 
-  const {id}=req.params;
-
-
-
-  try{
-
-
-    const [producto]=await pool.query(
-
+    // Buscar producto
+    const [producto] = await pool.query(
       "SELECT * FROM productos WHERE id_producto = ?",
-
       [id]
-
     );
 
 
-
-    if(producto.length===0){
-
+    if (producto.length === 0) {
 
       return res.status(404).json({
-
-        error:"Producto no encontrado"
-
+        error: "Producto no encontrado"
       });
-
 
     }
 
 
-
-
-
-    if(producto[0].imagen){
-
-
+    // Eliminar imagen del servidor
+    if (producto[0].imagen) {
 
       const rutaImagen = path.join(
-
         __dirname,
-
         "..",
-
         producto[0].imagen
-
       );
 
 
-
-      if(fs.existsSync(rutaImagen)){
+      if (fs.existsSync(rutaImagen)) {
 
         fs.unlinkSync(rutaImagen);
 
       }
 
-
     }
 
 
 
-
-
+    // Eliminar detalles de pedidos cancelados
     await pool.query(
-
-      "DELETE FROM productos WHERE id_producto = ?",
-
+      `
+      DELETE dp 
+      FROM detalle_pedido dp
+      INNER JOIN pedidos p 
+      ON dp.id_pedido = p.id_pedido
+      WHERE dp.id_producto = ?
+      AND p.estado = 'Cancelado'
+      `,
       [id]
-
     );
 
 
+
+    // Ahora intentar eliminar producto
+    await pool.query(
+      "DELETE FROM productos WHERE id_producto = ?",
+      [id]
+    );
 
 
 
     res.json({
 
-      message:"Producto eliminado correctamente"
+      message: "Producto eliminado correctamente"
 
     });
 
 
 
+  } catch (error) {
 
-  }catch(error){
 
-
-    console.error("ERROR ELIMINAR PRODUCTO:",error);
+    console.error("ERROR ELIMINAR PRODUCTO:", error);
 
 
     res.status(500).json({
 
-      error:"Error al eliminar producto"
+      error: "No se puede eliminar el producto porque tiene pedidos activos"
 
     });
 
 
   }
 
-
 };
-
 
 
 
