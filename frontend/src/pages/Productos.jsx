@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../api/api";
 import "./Productos.css";
 import { useCarrito } from "../context/CarritoContext";
@@ -11,9 +12,10 @@ function Productos() {
   const [productos, setProductos] = useState([]);
 
   const { agregarAlCarrito } = useCarrito();
+  const [mostrarModal, setMostrarModal] = useState(false);
 
 
-
+const navigate = useNavigate();
   useEffect(() => {
 
 
@@ -55,40 +57,21 @@ function Productos() {
   // AGREGAR 500 GR
   // =========================
 
+const agregar500gr = (producto) => {
 
-  const agregar500gr = (producto) => {
-
-
-    const productoCarrito = {
-
-
-      ...producto,
-
-
-      // Precio de 500 gramos
-      precio: Number(producto.precio_500gr),
-
-
-      // Presentación
-      presentacion: "500 gr",
-
-
-      // Stock correcto
-      stock: Number(producto.stock_500gr),
-
-
-      precio_500gr: Number(producto.precio_500gr)
-
-
-    };
-
-
-
-    agregarAlCarrito(productoCarrito);
-
-
+  const productoCarrito = {
+    ...producto,
+    precio: Number(producto.precio_500gr),
+    presentacion: "500 gr",
+    stock: Number(producto.stock_500gr),
+    precio_500gr: Number(producto.precio_500gr)
   };
 
+  agregarAlCarrito(productoCarrito);
+
+  setMostrarModal(true);
+};
+ 
 
 
 
@@ -100,35 +83,25 @@ function Productos() {
   // =========================
 
 
-  const agregar1Kg = (producto) => {
+const agregar1Kg = (producto) => {
 
+  const productoCarrito = {
+    ...producto,
 
-    const productoCarrito = {
+    // Precio 1 kilo
+    precio: Number(producto.precio),
 
+    // Presentación
+    presentacion: "1 kg",
 
-      ...producto,
-
-
-      // Precio 1 kilo
-      precio: Number(producto.precio),
-
-
-      // Presentación
-      presentacion: "1 kg",
-
-
-      // Stock correcto
-      stock: Number(producto.stock_1kg)
-
-
-    };
-
-
-
-    agregarAlCarrito(productoCarrito);
-
-
+    // Stock correcto
+    stock: Number(producto.stock_1kg)
   };
+
+  agregarAlCarrito(productoCarrito);
+
+  setMostrarModal(true);
+};
 
 
 
@@ -419,12 +392,40 @@ function Productos() {
 
       </div>
 
+{mostrarModal && (
+  <div className="modal-fondo">
+    <div className="modal-carrito">
 
+      <h2>✅ Producto agregado</h2>
+
+      <p>El producto se agregó correctamente al carrito.</p>
+
+      <div className="modal-botones">
+
+        <button
+          className="btn-ir-carrito"
+          onClick={() => navigate("/carrito")}
+        >
+          🛒 Ir al carrito
+        </button>
+
+        <button
+          className="btn-seguir"
+          onClick={() => setMostrarModal(false)}
+        >
+          🛍️ Seguir comprando
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+)}
 
 
 
     </section>
-
+   
 
   );
 

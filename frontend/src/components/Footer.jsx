@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="footer-container">
 
         <div className="footer-brand">
-          <h2>🍓 Frutalia</h2>
+          <h2>🍓 Frutilla</h2>
           <p>
             Frutas congeladas seleccionadas con la mejor calidad 
             para tus comidas, licuados y postres.
@@ -61,7 +61,7 @@ const Footer = () => {
 
 
       <div className="footer-bottom">
-        © 2026 Frutalia - Todos los derechos reservados
+        © 2026 Frutilla - Todos los derechos reservados
       </div>
 
     </footer>
